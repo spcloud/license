@@ -20,9 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "license")
 public class LicenseController {
 
-    @Value("${custom.name}")
-    private String name;
-
     @Autowired
     private LicenseMapper licenseMapper;
 
