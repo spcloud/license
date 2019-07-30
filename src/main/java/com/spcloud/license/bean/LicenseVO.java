@@ -1,4 +1,4 @@
-package com.spcloud.license.model;
+package com.spcloud.license.bean;
 
 import java.io.Serializable;
 
@@ -9,14 +9,14 @@ import java.io.Serializable;
  **/
 public class LicenseVO implements Serializable {
     private static final long serialVersionUID = 7671418819256082391L;
-    private String id;
+    private Integer id;
     private String name;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

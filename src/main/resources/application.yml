@@ -1,6 +1,18 @@
 spring:
   profiles:
     active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.20.29.131:33061/crscore?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: com.spcloud.license.model
+  configuration:
+    mapUnderscoreToCamelCase: true
+    jdbcTypeForNull: NULL
 
 custom:
   name: 1
