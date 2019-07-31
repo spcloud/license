@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @create 20190731
  */
 @FeignClient("organization")
+@RequestMapping(value = "organization")
 public interface OrganizationFeignClient {
 
     /**
@@ -22,7 +23,7 @@ public interface OrganizationFeignClient {
      * @return
      * @author welkin
      */
-    @RequestMapping(value = "/organization/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     OrganizationVO get(@PathVariable(value = "id") Integer id);
 
 }

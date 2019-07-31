@@ -20,7 +20,7 @@ public class LicenseVO implements Serializable {
     /**
      * 组织id
      */
-    private String orgId;
+    private Integer orgId;
     /**
      * 组织名称
      */
@@ -42,11 +42,11 @@ public class LicenseVO implements Serializable {
         this.name = name;
     }
 
-    public String getOrgId() {
+    public Integer getOrgId() {
         return orgId;
     }
 
-    public void setOrgId(String orgId) {
+    public void setOrgId(Integer orgId) {
         this.orgId = orgId;
     }
 
