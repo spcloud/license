@@ -14,7 +14,6 @@
 	<name>license</name>
 	<description>许可证服务</description>
 
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -48,6 +47,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-client</artifactId>
 		</dependency>
+        <!--Spring Cloud Eureka-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
         <!--Mybatis-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
