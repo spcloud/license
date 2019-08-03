@@ -7,10 +7,13 @@ import com.spcloud.license.mapper.LicenseMapper;
 import com.spcloud.license.model.License;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @description: 许可证服务
@@ -26,6 +29,9 @@ public class LicenseController {
 
     @Autowired
     private OrganizationFeignClient organizationFeignClient;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     /**
      * 根据id获取许可证
@@ -43,6 +49,20 @@ public class LicenseController {
         BeanUtils.copyProperties(license, licenseVO);
         licenseVO.setOrgName(organizationVO.getName());
         return licenseVO;
+    }
+
+    /**
+     * RestTemplate方式获取组织
+     *
+     * @param id
+     * @return
+     * @author welkin
+     */
+    @RequestMapping(value = "/organization/{id}", method = RequestMethod.GET)
+    public OrganizationVO getOrganization(@PathVariable(value = "id") Integer id) {
+        ResponseEntity<OrganizationVO> responseEntity = restTemplate.exchange("http://organization/organization/{id}", HttpMethod.GET, null, OrganizationVO.class, id);
+        OrganizationVO organizationVO = responseEntity.getBody();
+        return organizationVO;
     }
 
 }
